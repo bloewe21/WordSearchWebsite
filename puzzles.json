@@ -1,7 +1,6 @@
 {
-
-
-        "puzzleArray1" : ["TGUSEARCHN",
+        "puzzleArray0" : [
+            "TGUSEARCHN",
             "JMLRIXTNQB",
             "GGRILTMNXA",
             "NHESYUOAEC",
@@ -12,16 +11,15 @@
             "NONEQESLIM",
             "NCAHNORTPQ"],
 
-        "puzzleArray2" : ["HHDSEQGVSK",
+        "puzzleArray1" : [
+            "HHDSEQGVSK",
             "ZYAUAQDLTJ",
             "YPQNRABMSU",
             "DRZETSRAMP",
-            "TWUVHHCSAI",
-            "WSACUOABKT",
-            "TSSKRTBNME",
-            "LSVCUEKLIR",
-            "HSRREQMOYX",
-            "TPNNEPTUNE"]
-
-    
+            "UWUVHHCSAI",
+            "RSACUOABKT",
+            "ASSKRTBNME",
+            "NSVCUEKLIR",
+            "USRREQMOYX",
+            "SPNNEPTUNE"]
 }

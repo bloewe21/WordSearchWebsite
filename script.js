@@ -1,71 +1,63 @@
-//calculator script
+//word search script
 
 const display = document.getElementById("display");
 const topdisplay = document.getElementById("topdisplay");
 const keys = document.getElementById("keys");
+const answerkey = document.getElementById("answerkey");
+const puzzletimer = document.getElementById("puzzletimer");
 
-// let letterBoard = ["TGUSEARCHN",
-//     "JMLRIXTNQB",
-//     "GGRILTMNXA",
-//     "NHESYUOAEC",
-//     "CLEQTNCNCR",
-//     "UOPUZZLEMY",
-//     "AAAADLUPSI",
-//     "WAARTLRCES",
-//     "NONEQESLIM",
-//     "NCAHNORTPQ"];
+//let currentPuzzle = 1;
+let currentPuzzle = getCurrentPuzzle();
 
 let letterBoard = [];
 let answerBoard = [];
 
-// const answerBoard = ["PUZZLE",
-//     "PEER",
-//     "REEP",
-//     "RENTA",
-//     "ELZZUP"];
+const buttonArray = [];
+let tempButtonArray = [];
 
-document.addEventListener("DOMContentLoaded", function() {
-    readJson();
-})
-
-let currentPuzzle = 1;
 let firstClick = false;
 let secondClick = false;
 let firstIndex = [];
 let secondIndex = [];
-const buttonArray = [];
-let tempButtonArray = []
+
+let highlightColor = 0;
+
+document.addEventListener("DOMContentLoaded", function() {
+    readJson();
+    nextPuzzleFunction();
+})
 
 function readJson() {
     fetch('./answers.json')
         .then(response => response.json())
         .then(json => {
+            //make array of strings from json
             const currKey1 = Object.keys(json)[currentPuzzle];
-            //console.log(currKey);
-            //console.log(json[currKey]);
             answerBoard = json[currKey1];
-            console.log(answerBoard);
-
             generateAnswers();
         });
 
     fetch('./puzzles.json')
         .then(response => response.json())
         .then(json => {
+            //make array of strings from json
             const currKey2 = Object.keys(json)[currentPuzzle];
-            //console.log(currKey);
-            //console.log(json[currKey]);
             letterBoard = json[currKey2];
-            console.log(letterBoard);
-            
             generateBoard();
         });
 }
 
 function generateBoard() {
-    for (let i = 0; i < 10; i++) {
+    const puzzleWidth = letterBoard[0].length;
+    const puzzleHeight = letterBoard.length;
+    keys.style.gridTemplateColumns = "repeat(" + puzzleWidth + ", 1fr)";
+    //keys.style.gridTemplateColumns = puzzleWidth;
+    //console.log(keys.style.gridTemplateColumns);
+    
+    for (let i = 0; i < puzzleHeight; i++) {
         let row = []
-        for (let j = 0; j < 10; j++) {
+        for (let j = 0; j < puzzleWidth; j++) {
+            console.log(letterBoard[i]);
             const newButton = document.createElement('button');
             newButton.textContent = letterBoard[i][j];
             let myIndex = [i, j];
@@ -81,10 +73,10 @@ function generateBoard() {
 
 function generateAnswers() {
     for (let i = 0; i < answerBoard.length; i++) {
-        const newDiv = document.createElement('div');
-        newDiv.textContent = answerBoard[i];
-        newDiv.setAttribute("class", "answerkey")
-        document.body.appendChild(newDiv)
+        const answerDiv = document.createElement('div');
+        answerDiv.textContent = answerBoard[i];
+        answerDiv.setAttribute("class", "answerkeyword");
+        answerkey.appendChild(answerDiv);
     }
 }
 
@@ -193,8 +185,17 @@ function clickFunction() {
                 topdisplay.textContent = "You found: " + choiceString + "!";
                 tempButtonArray.forEach(button => {
                     button.setAttribute("class", "highlighted-btn");
-                    button.style.color = 'orange';
+                    let saturation = 100;
+                    let lightness = 40;
+                    let color = `hsl(${highlightColor}, ${saturation}%, ${lightness}%)`;
+                    button.style.backgroundColor = color;
                 })
+                highlightColor += 30;
+                for (let i = 0; i < answerkey.children.length; i++) {
+                    if (answerkey.children[i].textContent == choiceString) {
+                        answerkey.children[i].style.textDecoration = "line-through";
+                    }
+                }
             }
             else {
                 topdisplay.textContent = "Incorrect!";
@@ -214,4 +215,25 @@ function clickFunction() {
         secondIndex = [];
         tempButtonArray = [];
     }
+}
+
+function nextPuzzleFunction() {
+    const today = new Date();
+    const hours = today.getHours();
+    const minutes = today.getMinutes();
+    const seconds = today.getSeconds();
+    const hoursRemaining = 24 - hours;
+    const minutesRemaining = 60 - minutes;
+    const secondsRemaining = 60 - seconds;
+    puzzletimer.textContent = "Next puzzle: " + hoursRemaining + ":" + minutesRemaining + ":" + secondsRemaining;
+}
+
+setInterval(nextPuzzleFunction, 1000);
+
+function getCurrentPuzzle() {
+    const today = new Date();
+    const firstDate = new Date('2024-12-21');
+    const timeinmilisec = today.getTime() - firstDate.getTime();
+    const daysPast = Math.floor(timeinmilisec / (1000 * 60 * 60 * 24));
+    return daysPast;
 }
