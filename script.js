@@ -20,6 +20,7 @@ let secondClick = false;
 let firstIndex = [];
 let secondIndex = [];
 
+let correctGuesses = 0;
 let highlightColor = 0;
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -51,13 +52,10 @@ function generateBoard() {
     const puzzleWidth = letterBoard[0].length;
     const puzzleHeight = letterBoard.length;
     keys.style.gridTemplateColumns = "repeat(" + puzzleWidth + ", 1fr)";
-    //keys.style.gridTemplateColumns = puzzleWidth;
-    //console.log(keys.style.gridTemplateColumns);
     
     for (let i = 0; i < puzzleHeight; i++) {
         let row = []
         for (let j = 0; j < puzzleWidth; j++) {
-            console.log(letterBoard[i]);
             const newButton = document.createElement('button');
             newButton.textContent = letterBoard[i][j];
             let myIndex = [i, j];
@@ -78,6 +76,7 @@ function generateAnswers() {
         answerDiv.setAttribute("class", "answerkeyword");
         answerkey.appendChild(answerDiv);
     }
+    console.log(answerBoard);
 }
 
 function clickFunction() {
@@ -182,7 +181,11 @@ function clickFunction() {
         //check answerBoard
         if (validChoice) {
             if (answerBoard.includes(choiceString)) {
+                correctGuesses += 1;
                 topdisplay.textContent = "You found: " + choiceString + "!";
+                if (correctGuesses == answerBoard.length) {
+                    topdisplay.textContent = "CONGRATS!";
+                }
                 tempButtonArray.forEach(button => {
                     button.setAttribute("class", "highlighted-btn");
                     let saturation = 100;
@@ -222,18 +225,33 @@ function nextPuzzleFunction() {
     const hours = today.getHours();
     const minutes = today.getMinutes();
     const seconds = today.getSeconds();
-    const hoursRemaining = 24 - hours;
-    const minutesRemaining = 60 - minutes;
-    const secondsRemaining = 60 - seconds;
-    puzzletimer.textContent = "Next puzzle: " + hoursRemaining + ":" + minutesRemaining + ":" + secondsRemaining;
+    let hoursRemaining = 24 - hours;
+    let hoursText = hoursRemaining.toString();
+    if (hoursText.length == 1) {
+        hoursText = "0" + hoursText;
+    }
+
+    let minutesRemaining = 60 - minutes;
+    let minutesText = minutesRemaining.toString();
+    if (minutesText.length == 1) {
+        minutesText = "0" + minutesText;
+    }
+
+    let secondsRemaining = 60 - seconds;
+    let secondsText = secondsRemaining.toString();
+    if (secondsText.length == 1) {
+        secondsText = "0" + secondsText;
+    }
+    puzzletimer.textContent = "Next puzzle: " + hoursText + ":" + minutesText + ":" + secondsText;
 }
 
 setInterval(nextPuzzleFunction, 1000);
 
 function getCurrentPuzzle() {
     const today = new Date();
-    const firstDate = new Date('2024-12-21');
+    const firstDate = new Date('2024-12-22');
     const timeinmilisec = today.getTime() - firstDate.getTime();
     const daysPast = Math.floor(timeinmilisec / (1000 * 60 * 60 * 24));
+    console.log(daysPast);
     return daysPast;
 }
