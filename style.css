@@ -17,32 +17,65 @@ body {
     width: 1000px; */
 }
 
+#navbar {
+    display: flex;
+    /* justify-content: right; */
+    /* margin-top: -30px; */
+    margin-left: auto;
+    margin-right: 0;
+    margin-bottom: -70px;
+    padding: 10px;
+}
+
+#title {
+    font-weight: bold;
+    margin-bottom: -20px;
+}
+
+#topdisplay {
+    font-size: 3rem;
+    margin-bottom: -40px;
+}
+
 #puzzle {
     font-family: Arial, sans-serif;
     background-color: hsl(0, 0%, 15%);
     border-radius: 15px;
     /* max-width: 200px; */
     overflow: hidden;
-    /* display:flex; */
+    display:flex;
 
 }
 
 #display {
-    /* width: 100%; */
+    width: 300px;
     /* padding: 20px; */
     /* height: 2px; */
-    font-size: 1rem;
+    font-size: 3rem;
     text-align: left;
     border: none;
-    background-color: hsl(0, 0%, 20%);
+    background-color: hsl(0, 0%, 40%);
     color: white;
+    margin-bottom:-50px;
 }
 
 #keys {
     display:grid;
     grid-template-columns: repeat(10, 1fr);
     gap: 2px;
-    padding: 15px;
+    padding: 20px;
+    margin-bottom: -2px;
+}
+
+#answerkey {
+    background-color: white;
+    padding: 20px;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+#answers {
+    padding: 20px;
 }
 
 button {
@@ -74,7 +107,36 @@ button:active {
     background-color: white;
 }
 
+#infobtn {
+    background-color: hsl(0, 0%, 40%);
+    width: 30px;
+    height: 30px;
+    font-size: 1.3rem;
+    border-radius: 50px;
+}
+
+#infobtn:hover {
+    background-color: hsl(0, 0%, 60%);
+}
+
+#infobtn:active {
+    background-color: hsl(0, 0%, 80%);
+}
+
 .answerkeyword {
+    font-size: 1.3rem;
+    padding: 5px;
+    font-weight: normal;
+    margin-top: 5px;
+}
+
+#currenttimer {
     font-size: 3rem;
-    padding: 10px;
+    margin-top: -20px;
+    margin-bottom: -30px;
+}
+
+#puzzletimer {
+    font-size: 3rem;
+    padding-bottom: 30px;
 }

@@ -7,17 +7,30 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="topdisplay">Choose your first letter.</div>
+    <div id="navbar">
+        <button id="infobtn" onclick="infoFunction()">i</button>
+    </div>
+    <div id="title">Daily Word Search #1</div>
+    <div id="topdisplay">Click on two valid letters</div>
+    <!-- <input id="display" readonly> -->
     
     <div id="puzzle">
-        <input id="display" readonly>
+        <!-- <input id="display" readonly> -->
+        <div id="answers">
+            <div id="answerkey">Answer key:</div>
+        </div>
+        <!-- <div id="answerkey">Answer key:</div> -->
         <div id="keys">
 
         </div>
     </div>
-    <div id="answerkey">Answer key:</div>
+    <!-- <div id="answerkey">Answer key:</div> -->
+    <div id="currenttimer">Time: 00:00:00</div>
     <div id="puzzletimer">Next puzzle: 00:00:00</div>
+    
 
     <script src="script.js"></script>
+    <script src="timer.js"></script>
+    <script src="info.js"></script>
 </body>
 </html>

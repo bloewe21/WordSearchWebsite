@@ -12,14 +12,48 @@
             "NCAHNORTPQ"],
 
         "puzzleArray1" : [
-            "AHHDSEQGVSK",
-            "AZYAUAQDLTJ",
-            "AYPQNRABMSU",
-            "ADRZETSRAMP",
-            "AUWUVHHCSAI",
-            "ARSACUOABKT",
-            "AASSKRTBNME",
-            "ANSVCUEKLIR",
-            "AUSRREQMOYX",
-            "ASPNNEPTUNE"]
+            "HHDSEQGVSK",
+            "ZYAUAQDLTJ",
+            "YPQNRABMSU",
+            "DRZETSRAMP",
+            "UWUVHHCSAI",
+            "RSACUOABKT",
+            "ASSKRTBNME",
+            "NSVCUEKLIR",
+            "USRREQMOYX",
+            "SPNNEPTUNE"],
+
+        "puzzleArray2" : [
+            "ILYSVUAVYMECWZ",
+            "VQXXVAPBVRVYZK",
+            "XYXPPLPNQIRXJG",
+            "NNOOVQLHPSRESC",
+            "ONGXCAEGNAROHB",
+            "LOCRVFQBDNUWCC",
+            "ECYMABGBOLIMEO",
+            "MHQOAPQMPKSUQW",
+            "RPZNXTEYEIOEWV",
+            "EHAMPLXHALBABT",
+            "TNREQSZWRZGZVR",
+            "AEADUWFVPFTQOJ",
+            "WCPEKFVCCJJNBK",
+            "HSAQCVBBGFPISV"
+        ],
+
+        "puzzleArray3" : [
+            "MDMBKYWMGKTUTJ",
+            "SFEBNRNOCJOSUV",
+            "RETSMAHNSARTRW",
+            "GOLDFISHUNRYTL",
+            "GOXZPXOGVBAGLC",
+            "JSVHURRGQKPKEP",
+            "LEEVSCAMDDHWET",
+            "CVXEAHVMTOBNEJ",
+            "WICTSEJIUGDRZL",
+            "RANXQBDPGSREAG",
+            "FZMFUNUCIEQKND",
+            "YJFJGIIEFFJXMQ",
+            "BUTGCASLOQLZUD",
+            "JPIRXYDSFYRTXL"
+        ]
 }

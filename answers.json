@@ -10,5 +10,31 @@
             "JUPITER",
             "SATURN",
             "URANUS",
-            "NEPTUNE"]
+            "NEPTUNE"],
+
+        "answerArray2" : [
+            "APPLE",
+            "BANANA",
+            "CHERRY",
+            "ORANGE",
+            "LEMON",
+            "LIME",
+            "GRAPE",
+            "PEACH",
+            "PEAR",
+            "WATERMELON"
+        ],
+
+        "answerArray3" : [
+            "CAT",
+            "DOG",
+            "BUNNY",
+            "FERRET",
+            "GOLDFISH",
+            "HAMSTER",
+            "HORSE",
+            "PARROT",
+            "SNAKE",
+            "TURTLE"
+        ]
 }
