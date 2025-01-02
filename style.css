@@ -78,6 +78,11 @@ body {
     padding: 20px;
 }
 
+#sharediv {
+    margin-top: -50px;
+    margin-bottom: -10px;
+}
+
 button {
     width: 50px;
     height: 50px;
@@ -105,6 +110,14 @@ button:active {
 .letter-btn {
     color: black;
     background-color: white;
+}
+
+.share-btn {
+    margin-top: -200px;
+    background-color: hsl(0, 0%, 30%);
+    width: 150px;
+    border-radius: 15px;
+    font-weight: normal;
 }
 
 #infobtn {

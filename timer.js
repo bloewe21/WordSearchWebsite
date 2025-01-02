@@ -1,3 +1,5 @@
+//timer script
+
 const currentTimer = document.getElementById("currenttimer"); 
 const puzzleTimer = document.getElementById("puzzletimer");
 

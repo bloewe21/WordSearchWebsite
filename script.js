@@ -1,3 +1,5 @@
+//localStorage.clear();
+
 //word search script
 
 const title = document.getElementById("title");
@@ -6,7 +8,6 @@ const topdisplay = document.getElementById("topdisplay");
 const keys = document.getElementById("keys");
 const answerkey = document.getElementById("answerkey");
 
-//let currentPuzzle = 1;
 let currentPuzzle = getCurrentPuzzle();
 title.textContent = "Daily Word Search #" + (currentPuzzle + 1).toString();
 
@@ -23,6 +24,8 @@ let secondClick = false;
 let firstIndex = [];
 let secondIndex = [];
 
+let answersGenerated = false;
+let boardGenerated = false;
 let finishedPuzzle = false;
 let correctGuesses = 0;
 let highlightColor = 0;
@@ -31,13 +34,21 @@ document.addEventListener("DOMContentLoaded", function() {
     readJson();
 })
 
-//localStorage.clear();
-
 function getCurrentPuzzle() {
     const today = new Date();
     const firstDate = new Date('2025-01-01');
     const timeinmilisec = today.getTime() - firstDate.getTime();
     const daysPast = Math.floor(timeinmilisec / (1000 * 60 * 60 * 24));
+
+    if (!localStorage.getItem("savedLastPuzzle")) {
+        localStorage.setItem("savedLastPuzzle", daysPast);
+    }
+
+    if (daysPast != localStorage.getItem("savedLastPuzzle")) {
+        localStorage.setItem("savedLastPuzzle", daysPast);
+        localStorage.clear();
+    }
+
     return daysPast;
 }
 
@@ -69,6 +80,7 @@ function generateAnswers() {
         answerkey.appendChild(answerDiv);
     }
     console.log("answer");
+    answersGenerated = true;
 }
 
 function generateBoard() {
@@ -96,8 +108,8 @@ function generateBoard() {
 
             let saturation = 100;
             let lightness = 40;
-            if (localStorage.getItem("savedButtonHighlight" + i + j)) {
-                let highlightColor = JSON.parse(localStorage.getItem("savedButtonHighlight" + i + j));
+            if (localStorage.getItem("savedButtonHighlight" + i + "column" + j)) {
+                let highlightColor = JSON.parse(localStorage.getItem("savedButtonHighlight" + i + "column" + j));
                 let color = `hsl(${highlightColor}, ${saturation}%, ${lightness}%)`;
                 newButton.style.backgroundColor = color;
                 newButton.setAttribute("class", "highlighted-btn");
@@ -109,10 +121,19 @@ function generateBoard() {
         buttonArray.push(row)
     }
     console.log("board");
-    checkSavedFunction();
+    boardGenerated = true;
 }
 
+var checkInterval = setInterval(checkSavedFunction, 50);
+
 function checkSavedFunction() {
+    if (answersGenerated && boardGenerated) {
+        clearInterval(checkInterval);
+    }
+    else {
+        return;
+    }
+
     console.log("saved");
 
     if (localStorage.getItem("savedCorrectGuesses")) {
@@ -120,6 +141,7 @@ function checkSavedFunction() {
     }
 
     if (correctGuesses == answerBoard.length) {
+        createShare();
         topdisplay.textContent = "CONGRATS!";
     }
 
@@ -139,16 +161,13 @@ function checkSavedFunction() {
                 }
             }
         }
-        
     }
-    console.log(savedFoundAnswers);
 }
 
 function clickFunction() {
     if (!firstClick) {
         firstClick = true;
         firstIndex = JSON.parse(this.dataset.myIndex);
-        //topdisplay.textContent = "Choose your second letter.";
     }
     else if (!secondClick) {
         secondClick = true;
@@ -161,7 +180,6 @@ function clickFunction() {
         //same row
         if (firstIndex[0] == secondIndex[0] && firstIndex[1] != secondIndex[1]) {
             validChoice = true;
-            //topdisplay.textContent = "Same row";
 
             //left to right
             if (firstIndex[1] < secondIndex[1]) {
@@ -177,13 +195,11 @@ function clickFunction() {
                     tempButtonArray.push(buttonArray[firstIndex[0]][i]);
                 }
             }
-            //display.value = choiceString;
         }
 
         //same column
         else if (firstIndex[1] == secondIndex[1] && firstIndex[0] != secondIndex[0]) {
             validChoice = true;
-            //topdisplay.textContent = "Same column";
 
             //top to bottom
             if (firstIndex[0] < secondIndex[0]) {
@@ -199,7 +215,6 @@ function clickFunction() {
                     tempButtonArray.push(buttonArray[i][firstIndex[1]]);
                 }
             }
-            //display.value = choiceString;
         }
 
         //same diagonal
@@ -208,7 +223,6 @@ function clickFunction() {
             let diffY = Math.abs(firstIndex[1] - secondIndex[1])
             if (diffX == diffY && firstIndex[0] != secondIndex[0]) {
                 validChoice = true;
-                //topdisplay.textContent = "Same diagonal";
 
                 //down right
                 if (firstIndex[0] < secondIndex[0] && firstIndex[1] < secondIndex[1])
@@ -239,7 +253,6 @@ function clickFunction() {
                         tempButtonArray.push(buttonArray[firstIndex[0] - i][firstIndex[1] - i]);
                     }
                 }
-                //display.value = choiceString;
             }
         }
 
@@ -261,27 +274,22 @@ function clickFunction() {
                 topdisplay.textContent = "Found: " + choiceString;
 
                 if (correctGuesses == answerBoard.length) {
+                    createShare();
                     topdisplay.textContent = "CONGRATS!";
                     finishedPuzzle = true;
                     localStorage.setItem("savedFinishedPuzzle", finishedPuzzle);
                 }
                 
-                // localStorage.removeItem("savedButtonArray");
-                // localStorage.setItem("savedButtonArray", JSON.stringify(tempButtonArray));
                 tempButtonArray.forEach(button => {
                     button.setAttribute("class", "highlighted-btn");
                     let saturation = 100;
                     let lightness = 40;
                     let color = `hsl(${highlightColor}, ${saturation}%, ${lightness}%)`;
                     button.style.backgroundColor = color;
-                    localStorage.setItem("savedButtonHighlight" + button.getAttribute("row") + button.getAttribute("column"), highlightColor);
+                    localStorage.setItem("savedButtonHighlight" + button.getAttribute("row") + "column" + button.getAttribute("column"), highlightColor);
                 })
-                console.log(highlightColor);
                 highlightColor += 30;
                 localStorage.setItem("savedHighlight", highlightColor);
-                // let testword = JSON.parse(localStorage.getItem("savedButtonArray"));
-                // console.log(tempButtonArray);
-                // console.log(testword);
                 
                 for (let i = 0; i < answerkey.children.length; i++) {
                     if (answerkey.children[i].textContent == choiceString) {

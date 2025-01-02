@@ -36,5 +36,9 @@
             "PARROT",
             "SNAKE",
             "TURTLE"
-        ]
+        ],
+        
+        "answerArray4" : ["AMONG",
+            "FORTNITE",
+            "GAMING"]
 }
