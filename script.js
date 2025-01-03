@@ -1,4 +1,4 @@
-//localStorage.clear();
+// localStorage.clear();
 
 //word search script
 
@@ -264,12 +264,14 @@ function clickFunction() {
                 resetPuzzleVariables();
                 return;
             }
-            else {
-                foundAnswers.push(choiceString);
-                localStorage.setItem("savedFoundAnswers", JSON.stringify(foundAnswers));
-            }
+            // else {
+            //     foundAnswers.push(choiceString);
+            //     localStorage.setItem("savedFoundAnswers", JSON.stringify(foundAnswers));
+            // }
             if (answerBoard.includes(choiceString)) {
                 correctGuesses += 1;
+                foundAnswers.push(choiceString);
+                localStorage.setItem("savedFoundAnswers", JSON.stringify(foundAnswers));
                 localStorage.setItem("savedCorrectGuesses", correctGuesses);
                 topdisplay.textContent = "Found: " + choiceString;
 
