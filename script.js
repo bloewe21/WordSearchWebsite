@@ -37,10 +37,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function getCurrentPuzzle() {
     const today = new Date();
-    const firstDate = new Date('2025-01-01');
+    const firstDate = new Date('2024-12-31');
+    firstDate.setHours(firstDate.getHours() + 8);
     const timeinmilisec = today.getTime() - firstDate.getTime();
     const daysPast = Math.floor(timeinmilisec / (1000 * 60 * 60 * 24));
-    //console.log(timeinmilisec / (1000 * 60 * 60 * 24))
+
+    // let Difference_In_Days = Math.round(timeinmilisec / (1000 * 3600 * 24));
+    // console.log(timeinmilisec / (1000 * 3600 * 24));
+    // console.log(Difference_In_Days)
 
     // if (!localStorage.getItem("savedLastPuzzle")) {
     //     localStorage.setItem("savedLastPuzzle", daysPast);
