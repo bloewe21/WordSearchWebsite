@@ -38,7 +38,84 @@
             "TURTLE"
         ],
         
-        "answerArray4" : ["AMONG",
-            "FORTNITE",
-            "GAMING"]
+        "answerArray4" : [
+            "BROCCOLI",
+            "CORN",
+            "LETTUCE",
+            "CARROT",
+            "CUCUMBER",
+            "PEPPER",
+            "CELERY",
+            "KALE",
+            "POTATO"
+        ],
+
+        "answerArray5" : [
+            "BASEBALL",
+            "SOCCER",
+            "BASKETBALL",
+            "FOOTBALL",
+            "TENNIS",
+            "GOLF",
+            "HOCKEY",
+            "RUGBY"
+        ],
+
+        "answerArray6" : [
+            "MARIO",
+            "LUIGI",
+            "PEACH",
+            "DAISY",
+            "YOSHI",
+            "TOAD",
+            "WARIO",
+            "WALUIGI",
+            "DONKEYKONG",
+            "BOWSER"
+        ],
+
+        "answerArray7" : [
+            "HYDROGEN",
+            "CARBON",
+            "NITROGEN",
+            "OXYGEN",
+            "FLUORINE",
+            "PHOSPHORUS",
+            "SULFUR",
+            "POTASSIUM",
+            "IODINE"
+        ],
+
+        "answerArray8" : [
+            "APPLE",
+            "NVIDIA",
+            "MICROSOFT",
+            "AMAZON",
+            "GOOGLE",
+            "META",
+            "TESLA",
+            "TENCENT"
+        ],
+
+        "answerArray9" : [
+            "BAT",
+            "CAT",
+            "FAT",
+            "HAT",
+            "MAT",
+            "PAT",
+            "RAT",
+            "SAT",
+            "VAT"
+        ],
+
+        "answerArray10" : [
+            "MONDAY",
+            "TUESDAY",
+            "WEDNESDAY",
+            "THURSDAY",
+            "FRIDAY",
+            "SATURDAY",
+            "SUNDAY"
+        ]
 }

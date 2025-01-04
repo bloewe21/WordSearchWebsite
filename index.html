@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Word Search</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <title>Search Daily</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="navbar">
         <button id="infobtn" onclick="infoFunction()">i</button>
     </div>
-    <div id="title">Daily Word Search #1</div>
-    <div id="topdisplay">Click on two valid letters</div>
+    <div id="title">Search Daily #1</div>
+    <div id="topdisplay">Choose a starting letter...</div>
     <!-- <input id="display" readonly> -->
     
     <div id="puzzle">
@@ -28,6 +29,11 @@
     <div id="sharediv"></div>
     <div id="currenttimer">Time: 00:00:00</div>
     <div id="puzzletimer">Next puzzle: 00:00:00</div>
+    <div id="speechdiv">
+        <!-- <button type="button" disabled>Click me!</button> -->
+        <input type="checkbox" id="texttospeech" name="texttospeech"/>
+        <label for="texttospeech">Text to Speech</label>
+    </div>
     
 
     <script src="script.js"></script>

@@ -1,4 +1,4 @@
-// localStorage.clear();
+//localStorage.clear();
 
 //word search script
 
@@ -7,9 +7,10 @@ const display = document.getElementById("display");
 const topdisplay = document.getElementById("topdisplay");
 const keys = document.getElementById("keys");
 const answerkey = document.getElementById("answerkey");
+const speechbutton = document.getElementById("texttospeech");
 
 let currentPuzzle = getCurrentPuzzle();
-title.textContent = "Daily Word Search #" + (currentPuzzle + 1).toString();
+title.textContent = "Search Daily #" + (currentPuzzle).toString();
 
 let letterBoard = [];
 let answerBoard = [];
@@ -39,15 +40,16 @@ function getCurrentPuzzle() {
     const firstDate = new Date('2025-01-01');
     const timeinmilisec = today.getTime() - firstDate.getTime();
     const daysPast = Math.floor(timeinmilisec / (1000 * 60 * 60 * 24));
+    //console.log(timeinmilisec / (1000 * 60 * 60 * 24))
 
-    if (!localStorage.getItem("savedLastPuzzle")) {
-        localStorage.setItem("savedLastPuzzle", daysPast);
-    }
+    // if (!localStorage.getItem("savedLastPuzzle")) {
+    //     localStorage.setItem("savedLastPuzzle", daysPast);
+    // }
 
-    if (daysPast != localStorage.getItem("savedLastPuzzle")) {
-        localStorage.setItem("savedLastPuzzle", daysPast);
-        localStorage.clear();
-    }
+    // if (daysPast != localStorage.getItem("savedLastPuzzle")) {
+    //     localStorage.setItem("savedLastPuzzle", daysPast);
+    //     localStorage.clear();
+    // }
 
     return daysPast;
 }
@@ -76,10 +78,9 @@ function generateAnswers() {
     for (let i = 0; i < answerBoard.length; i++) {
         const answerDiv = document.createElement('div');
         answerDiv.textContent = answerBoard[i];
-        answerDiv.setAttribute("class", "answerkeyword");
+        answerDiv.setAttribute("id", "answerkeyword");
         answerkey.appendChild(answerDiv);
     }
-    console.log("answer");
     answersGenerated = true;
 }
 
@@ -120,7 +121,6 @@ function generateBoard() {
         }
         buttonArray.push(row)
     }
-    console.log("board");
     boardGenerated = true;
 }
 
@@ -134,15 +134,13 @@ function checkSavedFunction() {
         return;
     }
 
-    console.log("saved");
-
     if (localStorage.getItem("savedCorrectGuesses")) {
         correctGuesses = JSON.parse(localStorage.getItem("savedCorrectGuesses"));
     }
 
     if (correctGuesses == answerBoard.length) {
         createShare();
-        topdisplay.textContent = "CONGRATS!";
+        topdisplay.textContent = "Puzzle complete!";
     }
 
     if (localStorage.getItem("savedFinishedPuzzle")) {
@@ -168,6 +166,9 @@ function clickFunction() {
     if (!firstClick) {
         firstClick = true;
         firstIndex = JSON.parse(this.dataset.myIndex);
+        let firstButton = buttonArray[firstIndex[0]][firstIndex[1]];
+        firstButton.setAttribute("id", "indented-btn");
+        topdisplay.textContent = "Choose an ending letter...";
     }
     else if (!secondClick) {
         secondClick = true;
@@ -258,6 +259,12 @@ function clickFunction() {
 
         //check answerBoard
         if (validChoice) {
+            var speechMsg = new SpeechSynthesisUtterance();
+            speechMsg.text = choiceString;
+            if (speechbutton.checked) {
+                window.speechSynthesis.speak(speechMsg);
+            }
+
             if (foundAnswers.includes(choiceString)) {
                 topdisplay.textContent = "Already found";
                 validChoice = false;
@@ -318,9 +325,17 @@ function clickFunction() {
 }
 
 function resetPuzzleVariables() {
+    let firstButton = buttonArray[firstIndex[0]][firstIndex[1]];
+    firstButton.setAttribute("id", "");
     firstClick = false;
     secondClick = false;
     firstIndex = [];
     secondIndex = [];
     tempButtonArray = [];
+
+    setTimeout(() => {
+        if (!firstClick) {
+            topdisplay.textContent = "Choose a starting letter...";
+        }
+    }, 2000);
 }

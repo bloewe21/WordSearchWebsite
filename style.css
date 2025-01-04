@@ -28,12 +28,19 @@ body {
 }
 
 #title {
+    color: white;
     font-weight: bold;
-    margin-bottom: -20px;
+    margin-bottom: -35px;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
 }
 
 #topdisplay {
-    font-size: 3rem;
+    color: black;
+    font-weight: bold;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: hsl(0, 0%, 20%);
+    font-size: 2.5rem;
     margin-bottom: -40px;
 }
 
@@ -69,42 +76,57 @@ body {
 
 #answerkey {
     background-color: white;
-    padding: 20px;
-    font-size: 2rem;
+    padding: 10px;
+    font-size: 1.5rem;
     margin-bottom: 10px;
 }
 
 #answers {
     padding: 20px;
+    margin-right: -20px;
+}
+
+#answerkeyword {
+    font-size: 1.2rem;
+    padding: 5px;
+    color: gray;
 }
 
 #sharediv {
-    margin-top: -50px;
+    margin-top: -60px;
     margin-bottom: -10px;
 }
 
 button {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     /* border-radius: 50px; */
     border: none;
     background-color: hsl(0, 0%, 30%);
     color: white;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: bold;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: hsl(0, 0%, 80%);
+    filter: brightness(0.8);
 }
 
 button:active {
-    background-color: hsl(0, 0%, 60%);
+    filter: brightness(0.6);
 }
 
 .highlighted-btn {
     color: white;
+}
+
+.highlighted-btn:hover {
+    filter: brightness(0.8);
+}
+
+.highlighted-btn:active {
+    filter: brightness(0.6);
 }
 
 .letter-btn {
@@ -112,12 +134,21 @@ button:active {
     background-color: white;
 }
 
+#indented-btn {
+    /* background-color: hsl(0, 0%, 60%); */
+    filter: brightness(0.6);
+}
+
 .share-btn {
     margin-top: -200px;
-    background-color: hsl(0, 0%, 30%);
-    width: 150px;
+    /* background-color: hsl(0, 0%, 90%); */
+    width: 140px;
     border-radius: 15px;
     font-weight: normal;
+
+    background: hsl(0, 0%, 30%) url('shareicon.png') no-repeat top left;
+    background-position: 15px 4px;
+    padding-left: 40px;
 }
 
 #infobtn {
@@ -143,13 +174,35 @@ button:active {
     margin-top: 5px;
 }
 
+#speechdiv {
+    font-size: 1.5rem;
+    margin-top: -40px;
+    padding: 20px;
+}
+
+label {
+
+    margin: .5rem;
+}
+
 #currenttimer {
-    font-size: 3rem;
-    margin-top: -20px;
+    font-size: 2.5rem;
+    margin-top: -10px;
     margin-bottom: -30px;
 }
 
 #puzzletimer {
-    font-size: 3rem;
-    padding-bottom: 30px;
+    font-size: 2.5rem;
+}
+
+input[type='checkbox'] {
+    /* -webkit-appearance:none; */
+    width:15px;
+    height:15px;
+    background:white;
+    border-radius:5px;
+    border:2px solid #555;
+}
+input[type='checkbox']:checked {
+    background: #abd;
 }
