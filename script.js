@@ -42,18 +42,14 @@ function getCurrentPuzzle() {
     const timeinmilisec = today.getTime() - firstDate.getTime();
     const daysPast = Math.floor(timeinmilisec / (1000 * 60 * 60 * 24));
 
-    // let Difference_In_Days = Math.round(timeinmilisec / (1000 * 3600 * 24));
-    // console.log(timeinmilisec / (1000 * 3600 * 24));
-    // console.log(Difference_In_Days)
+    if (!localStorage.getItem("savedLastPuzzle")) {
+        localStorage.setItem("savedLastPuzzle", daysPast);
+    }
 
-    // if (!localStorage.getItem("savedLastPuzzle")) {
-    //     localStorage.setItem("savedLastPuzzle", daysPast);
-    // }
-
-    // if (daysPast != localStorage.getItem("savedLastPuzzle")) {
-    //     localStorage.setItem("savedLastPuzzle", daysPast);
-    //     localStorage.clear();
-    // }
+    if (daysPast != localStorage.getItem("savedLastPuzzle")) {
+        localStorage.clear();
+        localStorage.setItem("savedLastPuzzle", daysPast);
+    }
 
     return daysPast;
 }
