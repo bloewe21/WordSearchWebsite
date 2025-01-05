@@ -337,7 +337,12 @@ function resetPuzzleVariables() {
 
     setTimeout(() => {
         if (!firstClick) {
-            topdisplay.textContent = "Choose a starting letter...";
+            if (finishedPuzzle) {
+                topdisplay.textContent = "Puzzle complete!";
+            }
+            else {
+                topdisplay.textContent = "Choose a starting letter...";
+            }
         }
     }, 2000);
 }
