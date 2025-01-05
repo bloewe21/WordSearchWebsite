@@ -10,11 +10,13 @@ body {
     gap: 50px;
     text-align: center;
     overflow: auto;
-    background-color: hsl(214, 100%, 84%);
+    /* background-color: hsl(214, 100%, 84%); */
+    background-image: linear-gradient(hsl(283, 66%, 78%), hsl(175, 49%, 75%));
 
     /* min-width: 1000px;
     width: auto !important;
     width: 1000px; */
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
 
 #navbar {
@@ -30,7 +32,7 @@ body {
 #title {
     color: white;
     font-weight: bold;
-    margin-bottom: -35px;
+    margin-bottom: -40px;
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: black;
 }
@@ -41,7 +43,7 @@ body {
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: hsl(0, 0%, 20%);
     font-size: 2.5rem;
-    margin-bottom: -40px;
+    margin-bottom: -30px;
 }
 
 #puzzle {
@@ -51,6 +53,7 @@ body {
     /* max-width: 200px; */
     overflow: hidden;
     display:flex;
+    /* margin-bottom: 20px; */
 
 }
 
@@ -78,7 +81,7 @@ body {
     background-color: white;
     padding: 10px;
     font-size: 1.5rem;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
 }
 
 #answers {
@@ -90,11 +93,12 @@ body {
     font-size: 1.2rem;
     padding: 5px;
     color: gray;
+    margin-top: 2px;
 }
 
 #sharediv {
-    margin-top: -60px;
-    margin-bottom: -10px;
+    margin-top: -70px;
+    margin-bottom: -30px;
 }
 
 button {
@@ -110,6 +114,10 @@ button {
 }
 
 button:hover {
+    filter: brightness(0.8);
+}
+
+#hoverbutton {
     filter: brightness(0.8);
 }
 
@@ -140,7 +148,7 @@ button:active {
 }
 
 .share-btn {
-    margin-top: -200px;
+    /* margin-top: -200px; */
     /* background-color: hsl(0, 0%, 90%); */
     width: 140px;
     border-radius: 15px;
@@ -187,7 +195,7 @@ label {
 
 #currenttimer {
     font-size: 2.5rem;
-    margin-top: -10px;
+    /* margin-top: 20px; */
     margin-bottom: -30px;
 }
 
