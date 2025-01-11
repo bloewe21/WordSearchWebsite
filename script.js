@@ -14,7 +14,6 @@ title.textContent = "Search Daily #" + (currentPuzzle).toString();
 
 let letterBoard = [];
 let answerBoard = [];
-let foundButtons = [];
 let foundAnswers = [];
 
 const buttonArray = [];
@@ -40,7 +39,7 @@ function getCurrentPuzzle() {
     const firstDate = new Date('2024-12-31');
     firstDate.setHours(firstDate.getHours() + 8);
     const timeinmilisec = today.getTime() - firstDate.getTime();
-    const daysPast = Math.floor(timeinmilisec / (1000 * 60 * 60 * 24));
+    let daysPast = Math.floor(timeinmilisec / (1000 * 60 * 60 * 24));
 
     if (!localStorage.getItem("savedLastPuzzle")) {
         localStorage.setItem("savedLastPuzzle", daysPast);
@@ -139,7 +138,8 @@ function checkSavedFunction() {
     }
 
     if (correctGuesses == answerBoard.length) {
-        createShare();
+        //$(".share-btn").fadeIn();
+        $("#sharediv").fadeIn(2000);
         topdisplay.textContent = "Puzzle complete!";
     }
 
@@ -271,10 +271,6 @@ function clickFunction() {
                 resetPuzzleVariables();
                 return;
             }
-            // else {
-            //     foundAnswers.push(choiceString);
-            //     localStorage.setItem("savedFoundAnswers", JSON.stringify(foundAnswers));
-            // }
             if (answerBoard.includes(choiceString)) {
                 correctGuesses += 1;
                 foundAnswers.push(choiceString);
@@ -283,7 +279,8 @@ function clickFunction() {
                 topdisplay.textContent = "Found: " + choiceString;
 
                 if (correctGuesses == answerBoard.length) {
-                    createShare();
+                    //$(".share-btn").fadeIn();
+                    $("#sharediv").fadeIn(2000);
                     topdisplay.textContent = "Puzzle complete!";
                     start();
                     stop();
@@ -350,7 +347,7 @@ function resetPuzzleVariables() {
 const start = () => {
     setTimeout(function() {
         confetti.start()
-    }, 1000); // 1000 is time that after 1 second start the confetti ( 1000 = 1 sec)
+    }, 1000);
 };
 
 //  for stopping the confetti 
@@ -358,5 +355,5 @@ const start = () => {
 const stop = () => {
     setTimeout(function() {
         confetti.stop()
-    }, 5000); // 5000 is time that after 5 second stop the confetti ( 5000 = 5 sec)
+    }, 5000);
 };

@@ -1,7 +1,12 @@
 {
-        "answerArray0" : ["PUZZLE",
-            "PEER",
-            "RENTA"],
+        "answerArray0" : ["MERCURY",
+            "VENUS",
+            "EARTH",
+            "MARS",
+            "JUPITER",
+            "SATURN",
+            "URANUS",
+            "NEPTUNE"],
 
         "answerArray1" : ["MERCURY",
             "VENUS",
@@ -117,5 +122,74 @@
             "FRIDAY",
             "SATURDAY",
             "SUNDAY"
+        ],
+
+        "answerArray11" : [
+            "PIG",
+            "CHICKEN",
+            "COW",
+            "SHEEP",
+            "HORSE",
+            "DONKEY",
+            "ROOSTER",
+            "GOAT"
+        ],
+
+        "answerArray12" : [
+            "DAFFODIL",
+            "DAISY",
+            "LILAC",
+            "LILY",
+            "ORCHID",
+            "PEONY",
+            "ROSE",
+            "SUNFLOWER",
+            "TULIP"
+        ],
+
+        "answerArray13" : [
+            "PANCAKE",
+            "WAFFLE",
+            "TOAST",
+            "EGGS",
+            "BACON",
+            "SAUSAGE",
+            "BAGEL",
+            "OATMEAL",
+            "CEREAL"
+        ],
+
+        "answerArray14" : [
+            "MATH",
+            "SCIENCE",
+            "HISTORY",
+            "LANGUAGE",
+            "HEALTH",
+            "ART",
+            "DRAMA",
+            "MUSIC"
+        ],
+
+        "answerArray15" : [
+            "COMPUTER",
+            "MONITOR",
+            "KEYBOARD",
+            "MOUSE",
+            "CAMERA",
+            "MICROPHONE",
+            "SPEAKER",
+            "HARDDRIVE"
+        ],
+
+        "answerArray16" : [
+            "IRONMAN",
+            "CAPTAIN",
+            "THOR",
+            "HULK",
+            "HAWKEYE",
+            "SPIDERMAN",
+            "PANTHER",
+            "DOCTOR",
+            "STARLORD"
         ]
 }
