@@ -191,5 +191,37 @@
             "PANTHER",
             "DOCTOR",
             "STARLORD"
+        ],
+
+        "answerArray17" : [
+            "ROCK",
+            "POP",
+            "COUNTRY",
+            "METAL",
+            "HIPHOP",
+            "CLASSICAL",
+            "SOUL",
+            "JAZZ"
+        ],
+
+        "answerArray18" : [
+            "GAME",
+            "GAMES",
+            "GAMER",
+            "GAMERS",
+            "GAMED",
+            "GAMING",
+            "GAMEPLAY"
+        ],
+
+        "answerArray19" : [
+            "CAKE",
+            "ICECREAM",
+            "COOKIE",
+            "BROWNIE",
+            "PIE",
+            "PASTRY",
+            "CHOCOLATE",
+            "SMORES"
         ]
 }
