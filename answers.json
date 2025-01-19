@@ -223,5 +223,36 @@
             "PASTRY",
             "CHOCOLATE",
             "SMORES"
+        ],
+
+        "answerArray20" : [
+            "RED",
+            "ORANGE",
+            "YELLOW",
+            "GREEN",
+            "BLUE",
+            "INDIGO",
+            "PURPLE"
+        ],
+
+        "answerArray21" : [
+            "INSTAGRAM",
+            "TWITTER",
+            "YOUTUBE",
+            "FACEBOOK",
+            "TIKTOK",
+            "SNAPCHAT",
+            "REDDIT"
+        ],
+
+        "answerArray22" : [
+            "NINTENDO",
+            "SEGA",
+            "SONY",
+            "CAPCOM",
+            "NAMCO",
+            "RIOT",
+            "BLIZZARD",
+            "UBISOFT"
         ]
 }
