@@ -208,10 +208,18 @@ input[type='checkbox']:checked {
 }
 
 #info {
+
+    width: 100%;
+    color: black;
+    font-weight: bold;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: hsl(0, 0%, 20%);
+    margin-bottom: -80px;
     visibility: hidden;
     margin-top: -150px;
     text-align: right;
     padding: 10px;
+    margin-right: 30px;
     font-size: 24px;
 }
 

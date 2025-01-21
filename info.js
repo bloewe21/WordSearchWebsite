@@ -15,7 +15,7 @@ function shareFunction() {
 }
 
 function openInfo() {
-    if (window.innerWidth < 1200) {
+    if (window.innerWidth < 1300) {
         return;
     }
     if (infoForm.style.visibility === "hidden") {
@@ -26,7 +26,7 @@ function openInfo() {
 }
 
 function onWindowSize() {
-    if (window.innerWidth < 1200) {
+    if (window.innerWidth < 1300) {
         infoForm.style.visibility = "hidden";
     }
   }
