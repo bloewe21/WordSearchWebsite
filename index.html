@@ -9,10 +9,19 @@
 </head>
 <body>
     <div id="navbar">
-        <button id="infobtn" onclick="infoFunction()">i</button>
+        <button id="infobtn" onclick="openInfo()">i</button>
     </div>
-    <div id="title">Search Daily #1</div>
-    <div id="topdisplay">Choose a starting letter...</div>
+    <div id="title">Search Daily #1
+    </div>
+    <div id="topdisplay">Choose a starting letter...
+        <div id="info">
+            <p>Classic word search! Click</p>
+            <p>on a letter, then click on</p>
+            <p>the last letter of your guess.</p>
+            <p>Share your results once</p>
+            <p>you find all the words!</p>
+        </div>
+    </div>
     <!-- <input id="display" readonly> -->
     
     <div id="puzzle">
@@ -42,6 +51,5 @@
     <script src="timer.js"></script>
     <script src="info.js"></script>
     <script src="confetti.js"></script>
-    <script src="gamestest.js"></script>
 </body>
 </html>

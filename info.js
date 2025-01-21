@@ -1,8 +1,10 @@
 //info script
 const shareDiv = document.getElementById("sharediv");
+const infoForm = document.getElementById("info");
 
 //$(".share-btn").hide();
 $("#sharediv").hide();
+infoForm.style.visibility = "hidden";
 
 function shareFunction() {
     let titleText = title.textContent;
@@ -11,3 +13,22 @@ function shareFunction() {
     let siteText = "https://search-daily.vercel.app/";
     navigator.clipboard.writeText(titleText + "\n" + timeText + "\n" + foundText + "\n" + siteText);
 }
+
+function openInfo() {
+    if (window.innerWidth < 1200) {
+        return;
+    }
+    if (infoForm.style.visibility === "hidden") {
+        infoForm.style.visibility = "visible";
+      } else {
+        infoForm.style.visibility = "hidden";
+      }
+}
+
+function onWindowSize() {
+    if (window.innerWidth < 1200) {
+        infoForm.style.visibility = "hidden";
+    }
+  }
+  
+window.onresize = onWindowSize;

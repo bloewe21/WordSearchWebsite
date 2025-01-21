@@ -4,26 +4,17 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* height: 100vh; */
     font-size: 5rem;
     font-weight: bold;
     gap: 50px;
     text-align: center;
     overflow: auto;
-    /* background-color: hsl(214, 100%, 84%); */
     background-image: linear-gradient(hsl(283, 66%, 78%), hsl(175, 49%, 75%));
-
-    /* min-width: 1000px;
-    width: auto !important;
-    width: 1000px; */
-    
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
 
 #navbar {
     display: flex;
-    /* justify-content: right; */
-    /* margin-top: -30px; */
     margin-left: auto;
     margin-right: 0;
     margin-bottom: -70px;
@@ -39,6 +30,7 @@ body {
 }
 
 #topdisplay {
+    width: 100%;
     color: black;
     font-weight: bold;
     -webkit-text-stroke-width: 1px;
@@ -51,17 +43,12 @@ body {
     font-family: Arial, sans-serif;
     background-color: hsl(0, 0%, 15%);
     border-radius: 15px;
-    /* max-width: 200px; */
     overflow: hidden;
     display:flex;
-    /* margin-bottom: 20px; */
-
 }
 
 #display {
     width: 300px;
-    /* padding: 20px; */
-    /* height: 2px; */
     font-size: 3rem;
     text-align: left;
     border: none;
@@ -105,7 +92,6 @@ body {
 button {
     width: 40px;
     height: 40px;
-    /* border-radius: 50px; */
     border: none;
     background-color: hsl(0, 0%, 30%);
     color: white;
@@ -144,13 +130,10 @@ button:active {
 }
 
 #indented-btn {
-    /* background-color: hsl(0, 0%, 60%); */
     filter: brightness(0.6);
 }
 
 .share-btn {
-    /* margin-top: -200px; */
-    /* background-color: hsl(0, 0%, 90%); */
     width: 140px;
     border-radius: 15px;
     font-weight: normal;
@@ -196,7 +179,6 @@ label {
 
 #currenttimer {
     font-size: 2.5rem;
-    /* margin-top: 20px; */
     margin-bottom: -30px;
 }
 
@@ -205,7 +187,6 @@ label {
 }
 
 input[type='checkbox'] {
-    /* -webkit-appearance:none; */
     width:15px;
     height:15px;
     background:white;
@@ -215,3 +196,26 @@ input[type='checkbox'] {
 input[type='checkbox']:checked {
     background: #abd;
 }
+
+.popup {
+    width: 400px;
+    background: #fff;
+    border-radius: 6px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#info {
+    visibility: hidden;
+    margin-top: -150px;
+    text-align: right;
+    padding: 10px;
+    font-size: 24px;
+}
+
+p {
+    line-height: .1em;
+}
+
