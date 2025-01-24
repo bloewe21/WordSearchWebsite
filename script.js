@@ -58,7 +58,11 @@ function readJson() {
         .then(response => response.json())
         .then(json => {
             //make array of strings from json
-            const currKey1 = Object.keys(json)[currentPuzzle];
+            let currKey1 = Object.keys(json)[currentPuzzle];
+            //if key doesnt exist
+            if (!currKey1) {
+                currKey1 = Object.keys(json)[1];
+            }
             answerBoard = json[currKey1];
             generateAnswers();
         });
@@ -67,7 +71,11 @@ function readJson() {
         .then(response => response.json())
         .then(json => {
             //make array of strings from json
-            const currKey2 = Object.keys(json)[currentPuzzle];
+            let currKey2 = Object.keys(json)[currentPuzzle];
+            //if key doesnt exist
+            if (!currKey2) {
+                currKey2 = Object.keys(json)[1];
+            }
             letterBoard = json[currKey2];
             generateBoard();
         });
